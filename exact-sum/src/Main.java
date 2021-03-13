@@ -1,8 +1,8 @@
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
+//import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+//import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import  java.util.Arrays;
 
@@ -10,12 +10,12 @@ public class Main {
 
     public static  void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        //BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         int [] bookPrices;
         String [] inPut;
         String line;
         //String aux=" ";
-        StringBuilder out= new StringBuilder();
+        //String out;
         int size;
         int peterMoney;
         line= br.readLine();
@@ -24,7 +24,7 @@ public class Main {
          * el sol, la luna y la verdad (Buddha)
          * y la verdad es que no hay una forma de hacer que el ciclo no pare sin pulsar ctrl+d o ctrl+z
          */
-        while (line!=null){
+        do {
             if (!line.equals("")){
                 //System.out.println("La linea tiene 'size': "+line);
                 size = Integer.parseInt(line);
@@ -38,20 +38,21 @@ public class Main {
                 line = br.readLine();
                 //System.out.println("La linea tiene 'money': "+line);
                 peterMoney = Integer.parseInt(line);
-                out.append(peterShouldBuy(bookPrices,peterMoney));
+                System.out.println(peterShouldBuy(bookPrices,peterMoney));
+
                 //line = br.readLine();
                 //System.out.println("La linea tiene 'salto de linea': "+line);
 
             }
-
             line = br.readLine();
 
-        }
+        } while (line!=null);
 
 
-        bw.write(out.toString());
+
+        //bw.write(out.toString());
         br.close();
-        bw.close();
+        //bw.close();
 
     }
 
