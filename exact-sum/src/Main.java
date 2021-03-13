@@ -14,7 +14,7 @@ public class Main {
         int [] bookPrices;
         String [] inPut;
         String line;
-        String aux=" ";
+        //String aux=" ";
         StringBuilder out= new StringBuilder();
         int size;
         int peterMoney;
@@ -49,7 +49,7 @@ public class Main {
         }
 
 
-        bw.write(out.toString()+aux);
+        bw.write(out.toString());
         br.close();
         bw.close();
 
