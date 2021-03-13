@@ -14,32 +14,42 @@ public class Main {
         int [] bookPrices;
         String [] inPut;
         String line;
+        String aux=" ";
         StringBuilder out= new StringBuilder();
         int size;
         int peterMoney;
-        line = br.readLine();
+        line= br.readLine();
+        /*
+         * Hay tres cosas que no se pueden ocultar por mucho tiempo:
+         * el sol, la luna y la verdad (Buddha)
+         * y la verdad es que no hay una forma de hacer que el ciclo no pare sin pulsar ctrl+d o ctrl+z
+         */
         while (line!=null){
-    
-            if (!line.equals("\n") && !line.equals("")){
+            if (!line.equals("")){
+                //System.out.println("La linea tiene 'size': "+line);
                 size = Integer.parseInt(line);
                 bookPrices = new int[size];
                 line = br.readLine();
+                //System.out.println("La linea tiene 'input': "+line);
                 inPut = line.split(" ");
-
                 for (int i = 0; i <inPut.length ; i++) {
                     bookPrices[i]= Integer.parseInt(inPut[i]);
-
                 }
                 line = br.readLine();
+                //System.out.println("La linea tiene 'money': "+line);
                 peterMoney = Integer.parseInt(line);
                 out.append(peterShouldBuy(bookPrices,peterMoney));
-             
+                //line = br.readLine();
+                //System.out.println("La linea tiene 'salto de linea': "+line);
 
             }
+
             line = br.readLine();
+
         }
 
-        bw.write(out.toString()+"\n");
+
+        bw.write(out.toString()+aux);
         br.close();
         bw.close();
 
@@ -58,7 +68,7 @@ public class Main {
             found = false;
             while (i<=j && !found){
                 int m = (i+j)/2;
-                if((bookPrices[m]+bookPrices[n])==peterMoney){
+                if((bookPrices[m]+bookPrices[n])==peterMoney && (m!=n)){
                     found = true;
                     k=bookPrices[n];
                     l=bookPrices[m];          
@@ -84,8 +94,7 @@ public class Main {
             }
         }
 
-        
-        out = "Peter should buy books whose prices are "+k+" and "+l+"\n";
+        out = "Peter should buy books whose prices are "+k+" and "+l+".\n";
         return out;
     }
 
